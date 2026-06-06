@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elite Barber Shop | Premium</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --gold: #d4af37;
+            --dark: #0a0a0a;
+            --card-bg: #151515;
+        }
+
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            background: radial-gradient(circle at center, #222 0%, #050505 100%); 
+            color: #eee; 
+            margin: 0; 
+            padding: 15px; 
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .profile-card { 
+            width: 100%;
+            max-width: 500px; 
+            background: var(--card-bg); 
+            padding: 30px; 
+            border-radius: 25px; 
+            border: 1px solid #333; 
+            text-align: center; 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+        }
+        
+        .logo-main { width: 90px; margin-bottom: 20px; filter: drop-shadow(0 0 10px rgba(212, 175, 55, 0.5)); }
+        
+        h1 { 
+            font-family: 'Playfair Display', serif; 
+            color: var(--gold); 
+            margin: 0; 
+            font-size: 2.2rem; 
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        
+        .subtitle { color: #888; margin-bottom: 20px; letter-spacing: 3px; text-transform: uppercase; font-size: 0.75rem; }
+        
+        .cta-text { 
+            font-size: 1rem; 
+            color: #fff; 
+            margin-bottom: 20px; 
+            font-weight: 300; 
+            border-bottom: 1px solid #333; 
+            padding-bottom: 15px;
+        }
+
+        .hours-box { 
+            background: linear-gradient(135deg, #1c1c1c 0%, #000 100%); 
+            padding: 12px; 
+            border-radius: 15px; 
+            margin-bottom: 25px; 
+            border: 1px solid var(--gold);
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        /* Grid de Botones */
+        .grid-buttons { display: grid; grid-template-columns: repeat(5, 1fr); gap: 8px; margin-bottom: 30px; }
+        .btn-box { 
+            background: #202020; 
+            padding: 10px; 
+            border-radius: 12px; 
+            cursor: pointer; 
+            transition: all 0.3s ease; 
+            border: 1px solid #333; 
+        }
+        .btn-box:hover { background: #333; border-color: var(--gold); }
+        .btn-box img { width: 100%; max-width: 25px; display: block; margin: 0 auto; }
+
+        /* Formulario */
+        .opinion-section { text-align: left; }
+        .opinion-section h3 { color: var(--gold); text-align: center; margin-bottom: 10px; font-size: 1.1rem; }
+        textarea { 
+            width: 100%; background: #050505; border: 1px solid #444; color: white; 
+            padding: 12px; border-radius: 12px; margin-bottom: 10px; box-sizing: border-box; 
+            font-family: inherit; font-size: 0.9rem;
+        }
+        button { 
+            background: var(--gold); color: #000; border: none; padding: 12px; 
+            border-radius: 12px; font-weight: 900; cursor: pointer; width: 100%; 
+            text-transform: uppercase; font-size: 0.9rem;
+        }
+
+        /* Adaptación a Teléfonos muy pequeños */
+        @media (max-width: 400px) {
+            .profile-card { padding: 20px; }
+            h1 { font-size: 1.8rem; }
+            .grid-buttons { gap: 5px; }
+            .btn-box { padding: 8px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="profile-card">
+        <img src="LOGO.webp" class="logo-main" alt="Barber Pole">
+        <h1>Elite Barber Shop</h1>
+        <p class="subtitle">Excelencia y Precisión Capilar</p>
+
+        <p class="cta-text">Un gusto de atenderte, haz tu reservación vía WhatsApp</p>
+
+        <div class="hours-box">
+            Lunes a Domingo<br>
+            7:00 am - 10:00 pm
+        </div>
+
+        <div class="grid-buttons">
+            <div class="btn-box" onclick="window.open('https://wa.me/523314694665')"><img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" alt="WhatsApp"></div>
+            <div class="btn-box" onclick="window.open('https://maps.app.goo.gl/nN7n1GE3BVuHjJc56')"><img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Google_Maps_icon_%282020%29.svg" alt="Maps"></div>
+            <div class="btn-box" onclick="window.open('https://facebook.com')"><img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/2021_Facebook_icon.svg" alt="Facebook"></div>
+            <div class="btn-box" onclick="window.open('https://instagram.com')"><img src="https://upload.wikimedia.org/wikipedia/commons/e/e7/Instagram_logo_2016.svg" alt="Instagram"></div>
+            <div class="btn-box" onclick="window.open('https://tiktok.com')"><img src="LOGO DE TIKTOK.jpg" alt="TikTok"></div>
+        </div>
+
+        <div class="opinion-section">
+            <h3>Tu opinión nos impulsa</h3>
+            <textarea id="opinion" rows="3" placeholder="¿Cómo fue tu experiencia?"></textarea>
+            <button onclick="enviarCorreo()">Enviar Opinión</button>
+        </div>
+    </div>
+
+    <script>
+        function enviarCorreo() {
+            const txt = document.getElementById('opinion').value;
+            window.location.href = `mailto:angelolivoz@gmail.com?subject=Nueva Opinión Barbería&body=${encodeURIComponent(txt)}`;
+        }
+    </script>
+</body>
+</html>
